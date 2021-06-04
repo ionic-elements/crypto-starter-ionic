@@ -1,0 +1,12 @@
+#post-list {
+  ion-list {
+    background: transparent;
+  }
+  
+  ion-item {
+    p {
+      color: var(--ion-color-medium-tint) !important;
+    }
+  }
+}
+

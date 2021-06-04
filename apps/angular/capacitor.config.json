@@ -1,0 +1,6 @@
+{
+	"appId": "com.quanlabs.cryptostarter.angular",
+	"appName": "crypto-starter-angular",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

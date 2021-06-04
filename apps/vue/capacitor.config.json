@@ -1,0 +1,6 @@
+{
+	"appId": "com.quanlabs.cryptostarter.vue",
+	"appName": "crypto-starter-vue",
+	"webDir": "dist",
+	"bundledWebRuntime": false
+}

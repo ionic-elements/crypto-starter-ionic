@@ -1,0 +1,17 @@
+<ion-item button color="primary" [detail]="false" [routerLink]="['./' + this.coin.id]">
+  <ion-avatar slot="start">
+    <ion-img [src]="coin.image" [alt]="coin.name"></ion-img>
+  </ion-avatar>
+  <ion-label>
+    <h2 class="bold">
+      <ion-text color="light">
+        {{ coin.name }}
+      </ion-text>
+    </h2>
+  </ion-label>
+  <div slot="end">
+    <p class="bold">
+      {{ coin.current_price | intlNumber: { style: 'currency', currency: 'USD', maximumFractionDigits: 8 } }}
+    </p>
+  </div>
+</ion-item>

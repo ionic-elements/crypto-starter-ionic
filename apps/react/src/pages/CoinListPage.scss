@@ -1,0 +1,14 @@
+#coin-list {
+  ion-list {
+    background: transparent;
+
+    ion-item {
+      --background: transparent;
+
+      ion-avatar {
+        min-width: 25px !important;
+        min-height: 25px !important;
+      }
+    }
+  }
+}

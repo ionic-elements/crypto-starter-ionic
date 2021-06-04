@@ -1,0 +1,235 @@
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+@font-face {
+  font-family: "Roboto Condensed";
+  src: url("/assets/fonts/RobotoCondensed-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto Condensed";
+  src: url("/assets/fonts/RobotoCondensed-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-display: swap;
+}
+
+
+ion-title {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 14px;
+}
+
+.relative {
+  position: relative;
+}
+
+.flex {
+  display: flex;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-space-between {
+  justify-content: space-between;
+}
+
+.justify-content-space-evenly {
+  justify-content: space-evenly;
+}
+
+.justify-content-space-around {
+  justify-content: space-around;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.radius-xs {
+  border-radius: 8px;
+}
+
+.radius-md {
+  border-radius: 16px;
+}
+
+.radius-lg {
+  border-radius: 32px;
+}
+
+.inline-block {
+  display: inline-block !important;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.bold {
+  font-weight: bold !important;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.text-xxs {
+  font-size: 10px !important;
+}
+
+.text-xs {
+  font-size: 12px !important;
+}
+
+.text-sm {
+  font-size: 13px !important;
+}
+
+.text-md {
+  font-size: 14px !important;
+}
+
+.text-base {
+  font-size: 16px !important;
+}
+
+.text-lg {
+  font-size: 18px !important;
+}
+
+.text-xxl {
+  font-size: 36px !important;
+}
+
+.img-cover {
+  object-fit: cover;
+}
+
+.img-thumb {
+  width: 60px !important;
+  height: 60px !important;
+}
+
+.mt-xs {
+  margin-top: 8px !important;
+}
+
+.mt-md {
+  margin-top: 16px;
+}
+
+.mt-lg {
+  margin-top: 32px;
+}
+
+.mb-lg {
+  margin-bottom: 32px;
+}
+
+.mv-md {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.mv-lg {
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.mb-xs {
+  margin-bottom: 8px;
+}
+
+.mb-md {
+  margin-bottom: 16px;
+}
+
+.p-sm {
+  padding: 8px;
+}
+
+.p-xs {
+  padding: 6px;
+}
+
+.p-md {
+  padding: 16px;
+}
+
+.pb-xs {
+  padding-bottom: 8px;
+}
+
+.pb-md {
+  padding-bottom: 16px;
+}
+
+.pb-lg {
+  padding-bottom: 32px;
+}
+
+.pv-md {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.pt-md {
+  padding-top: 16px;
+}
+
+.opacity-md {
+  opacity: 0.5;
+}
+
+.opacity-lg {
+  opacity: 0.75;
+}
+
+.fade-in {
+  animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

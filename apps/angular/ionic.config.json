@@ -1,0 +1,7 @@
+{
+  "name": "crypto-starter-angular",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

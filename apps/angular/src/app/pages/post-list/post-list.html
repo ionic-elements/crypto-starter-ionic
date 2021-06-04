@@ -1,0 +1,49 @@
+<ion-header class="ion-no-border" [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Crypto starter
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="onReload($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <empty-view *ngIf="viewState === ViewState.EMPTY" title="No posts found" icon="alert-circle-outline"></empty-view>
+  <empty-view *ngIf="viewState === ViewState.ERROR" title="Network error" icon="alert-circle-outline"></empty-view>
+
+  <div *ngIf="viewState === ViewState.LOADING">
+    <div class="skeleton-wrapper" *ngFor="let item of [].constructor(20)">
+      <ion-item color="primary">
+        <ion-thumbnail slot="start">
+          <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+        </ion-thumbnail>
+        <ion-label>
+          <ion-skeleton-text animated style="width: 90%"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
+        </ion-label>
+      </ion-item>
+    </div>
+  </div>
+
+  <ion-list [@staggerIn]="posts.length" *ngIf="viewState === ViewState.CONTENT">
+    <ion-item button [detail]="false" color="primary" *ngFor="let post of posts" (click)="openUrl(post.url)">
+      <ion-thumbnail slot="start">
+        <ion-img [src]="post.imageurl" [alt]="post.title"></ion-img>
+      </ion-thumbnail>
+      <ion-label class="ion-text-wrap">
+        <h2 class="bold line-clamp-2">{{ post.title }}</h2>
+        <p class="bold text-md mt-xs">
+          {{ post.source_info.name }} | 
+          {{ $any(post.published_on * 1000) | intlDate:{ month: "short", day: "numeric", year: "2-digit", hour: "numeric", minute: "2-digit" } }}
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

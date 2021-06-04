@@ -1,0 +1,7 @@
+{
+  "name": "crypto-starter-vue",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}

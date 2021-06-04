@@ -1,0 +1,14 @@
+:host {
+  display: block;
+}
+
+ion-item {
+  --background: transparent;
+}
+
+ion-avatar {
+  min-width: 25px !important;
+  min-height: 25px !important;
+  background: white;
+  padding: 2px;
+}

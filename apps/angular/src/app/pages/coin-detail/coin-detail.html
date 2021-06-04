@@ -1,0 +1,81 @@
+<ion-header class="ion-no-border" [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ coin?.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <ion-refresher slot="fixed" (ionRefresh)="loadData($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div class="flex align-items-center justify-content-center full-height" *ngIf="viewState === ViewState.LOADING">
+    <ion-spinner></ion-spinner>
+  </div>
+
+  <empty-view *ngIf="viewState === ViewState.EMPTY" title="Coin not found" icon="alert-circle-outline"></empty-view>
+  <empty-view *ngIf="viewState === ViewState.ERROR" title="Network error" icon="alert-circle-outline"></empty-view>
+
+  <ion-row *ngIf="viewState === ViewState.CONTENT">
+    <ion-col size-xs="12" size-md="6">
+      <h5 class="bold ion-text-uppercase mt-xs">Price (30 Days)</h5>
+      <canvas id="canvas">{{ chart }}</canvas>
+    </ion-col>
+    <ion-col size-xs="12" size-md="6">
+      <ion-row>
+        <ion-col size="4" class="ion-text-center">
+          <ion-text color="medium">
+            <p class="ion-text-uppercase bold">Price</p>
+          </ion-text>
+          <p class="ion-no-margin bold">
+            {{ coin?.usd | currency:'USD':'symbol':'0.2-8'}}
+          </p>
+        </ion-col>
+        <ion-col size="4" class="ion-text-center">
+          <ion-text color="medium">
+            <p class="ion-text-uppercase bold">Change 24h</p>
+          </ion-text>
+          <p class="ion-no-margin bold">
+            {{ coin?.usd_24h_change / 100 | intlNumber:formatNumberPercent }}
+          </p>
+        </ion-col>
+        <ion-col size="4" class="ion-text-center">
+          <ion-text color="medium">
+            <p class="ion-text-uppercase bold">Volume 24h</p>
+          </ion-text>
+          <p class="ion-no-margin bold">
+            {{ coin?.usd_24h_vol | intlNumber:formatNumberCompact }}
+          </p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-margin-vertical">
+        <ion-col class="ion-text-center">
+          <ion-text color="medium">
+            <p class="ion-text-uppercase bold">Market cap</p>
+          </ion-text>
+          <p class="ion-no-margin bold">
+            {{ coin?.usd_market_cap | intlNumber:formatNumberCompact }}
+          </p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-text color="medium">
+            <p class="ion-text-uppercase bold">Last updated</p>
+          </ion-text>
+          <p class="ion-no-margin bold">
+            {{ $any(coin?.last_updated_at * 1000) | intlDate:formatDateOpts }}
+          </p>
+        </ion-col>
+      </ion-row>
+
+    </ion-col>
+  </ion-row>
+
+</ion-content>

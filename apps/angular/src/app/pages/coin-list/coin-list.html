@@ -1,0 +1,46 @@
+<ion-header class="ion-no-border" [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Crypto starter
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/posts']">
+        <ion-icon name="notifications-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-refresher slot="fixed" (ionRefresh)="onReload($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <empty-view *ngIf="viewState === ViewState.EMPTY" title="No coins found" icon="alert-circle-outline"></empty-view>
+  <empty-view *ngIf="viewState === ViewState.ERROR" title="Network error" icon="alert-circle-outline"></empty-view>
+
+  <div *ngIf="viewState === ViewState.LOADING">
+    <div class="skeleton-wrapper" *ngFor="let item of [].constructor(20)">
+      <ion-item color="primary">
+        <ion-thumbnail slot="start">
+          <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+        </ion-thumbnail>
+        <ion-label>
+          <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+        </ion-label>
+        <div slot="end">
+          <div style="width: 40px;">
+            <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+          </div>
+        </div>
+      </ion-item>
+    </div>
+  </div>
+
+  <ion-list [@staggerIn]="coins?.length" *ngIf="viewState === ViewState.CONTENT">
+    <app-coin *ngFor="let coin of coins" [coin]="coin">
+    </app-coin>
+  </ion-list>
+
+</ion-content>

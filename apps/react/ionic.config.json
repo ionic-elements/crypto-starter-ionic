@@ -1,0 +1,7 @@
+{
+  "name": "crypto-starter-react",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

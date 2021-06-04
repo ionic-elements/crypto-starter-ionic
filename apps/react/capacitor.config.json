@@ -1,0 +1,6 @@
+{
+	"appId": "com.quanlabs.cryptostarter.react",
+	"appName": "Crypto starter",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}
