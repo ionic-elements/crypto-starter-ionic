@@ -1,6 +1,8 @@
 # Crypto Starter
 
-Crypto app with market data, graphs and latest news.
+Crypto Starter with market data, graphs and latest news.
+
+<img alt="Crypto Starter Ionic/Angular / React / Vue" src="https://user-images.githubusercontent.com/1320696/120843899-4619cf80-c534-11eb-85fd-5ce17cde55b7.png" width="800">
 
 ## Getting Started
 
